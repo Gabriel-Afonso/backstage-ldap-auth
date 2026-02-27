@@ -1,0 +1,33 @@
+dn: ou=users,dc=backstage,dc=local
+objectClass: organizationalUnit
+ou: users
+
+dn: ou=groups,dc=backstage,dc=local
+objectClass: organizationalUnit
+ou: groups
+
+dn: cn=devs,ou=groups,dc=backstage,dc=local
+objectClass: groupOfNames
+cn: devs
+member: uid=jdoe,ou=users,dc=backstage,dc=local
+member: uid=asmith,ou=users,dc=backstage,dc=local
+
+dn: uid=jdoe,ou=users,dc=backstage,dc=local
+objectClass: inetOrgPerson
+cn: John Doe
+sn: Doe
+givenName: John
+uid: jdoe
+mail: jdoe@backstage.local
+displayName: John Doe
+userPassword: jdoe
+
+dn: uid=asmith,ou=users,dc=backstage,dc=local
+objectClass: inetOrgPerson
+cn: Alice Smith
+sn: Smith
+givenName: Alice
+uid: asmith
+mail: asmith@backstage.local
+displayName: Alice Smith
+userPassword: asmith

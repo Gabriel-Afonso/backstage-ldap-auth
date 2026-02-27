@@ -1,0 +1,14 @@
+{
+  "extends": "@backstage/cli/config/tsconfig.json",
+  "include": [
+    "src",
+    "config.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "compilerOptions": {
+    "outDir": "../../dist-types/plugins/ldap-auth-backend",
+    "rootDir": "."
+  }
+}

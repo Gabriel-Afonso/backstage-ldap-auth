@@ -67,6 +67,17 @@ auth:
   providers:
     # See https://backstage.io/docs/auth/guest/provider
     guest: {}
+    ldap:
+      development:
+        url: ldap://localhost:1389
+        bindDN: cn=admin,dc=backstage,dc=local
+        bindCredentials: admin
+        searchBase: ou=users,dc=backstage,dc=local
+        usernameAttribute: uid
+        searchFilter: '(uid={{username}})'
+        userAttributes: ['mail', 'displayName', 'memberOf']
+        tls:
+          rejectUnauthorized: false
 
 scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options

@@ -1,0 +1,98 @@
+{
+  "name": "@backstage-community/plugin-ldap-auth",
+  "description": "Frontend plugin providing LDAP sign-in for Backstage",
+  "version": "0.1.0",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "type": "module",
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "backstage": {
+    "role": "frontend-plugin",
+    "pluginId": "ldap-auth",
+    "pluginPackages": [
+      "@backstage-community/plugin-ldap-auth",
+      "@backstage-community/plugin-ldap-auth-backend"
+    ]
+  },
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/index.ts",
+    "./alpha": "./src/alpha.ts",
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "alpha": [
+        "src/alpha.ts"
+      ],
+      "package.json": [
+        "package.json"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "backstage-cli package build",
+    "clean": "backstage-cli package clean",
+    "lint:check": "backstage-cli package lint",
+    "lint:fix": "backstage-cli package lint --fix",
+    "postpack": "backstage-cli package postpack",
+    "prepack": "backstage-cli package prepack",
+    "start": "backstage-cli package start",
+    "test": "backstage-cli package test --passWithNoTests --coverage",
+    "tsc": "tsc",
+    "prettier:check": "prettier --ignore-unknown --check .",
+    "prettier:fix": "prettier --ignore-unknown --write ."
+  },
+  "dependencies": {
+    "@backstage/core-components": "^0.18.6",
+    "@backstage/core-plugin-api": "^1.12.2",
+    "@backstage/frontend-plugin-api": "^0.13.4",
+    "@backstage/plugin-app-react": "^0.1.0",
+    "@backstage/theme": "^0.7.1",
+    "@mui/icons-material": "^5.14.18",
+    "@mui/material": "^5.14.18"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1 || ^17.0.0 || ^18.0.0",
+    "react-router-dom": "^6.0.0"
+  },
+  "devDependencies": {
+    "@backstage/cli": "^0.35.3",
+    "@backstage/test-utils": "^1.7.14",
+    "@testing-library/jest-dom": "^6.0.0",
+    "@testing-library/react": "^15.0.0",
+    "@testing-library/user-event": "14.6.1",
+    "@types/react": "^18.2.58",
+    "msw": "1.3.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.0.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/backstage/community-plugins",
+    "directory": "workspaces/ldap-auth/plugins/ldap-auth"
+  },
+  "keywords": [
+    "backstage",
+    "plugin",
+    "ldap",
+    "authentication"
+  ],
+  "prettier": "@backstage/cli/config/prettier",
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,mjs,cjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  }
+}

@@ -7,11 +7,34 @@ metadata:
 spec:
   memberOf: [guests]
 ---
+# Example LDAP users (see docker/ldap/ldif/50-bootstrap.ldif)
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: jdoe
+spec:
+  memberOf: [devs]
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  name: asmith
+spec:
+  memberOf: [devs]
+---
 # https://backstage.io/docs/features/software-catalog/descriptor-format#kind-group
 apiVersion: backstage.io/v1alpha1
 kind: Group
 metadata:
   name: guests
+spec:
+  type: team
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: devs
 spec:
   type: team
   children: []
